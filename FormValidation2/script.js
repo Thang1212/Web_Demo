@@ -21,6 +21,8 @@ function Validator(options) {
 			errorElement.innerText = '';
 			inputElement.parentElement.classList.remove('invalid');
 		}
+
+		return !errorMessage;
 	};
 
 	var formElement = document.querySelector(options.form);
@@ -30,10 +32,32 @@ function Validator(options) {
 		formElement.onsubmit = function(e) {
 			e.preventDefault();
 
+			var isFormValid = true;
+
 			options.rules.forEach(function(rule) {
 				var inputElement = formElement.querySelector(rule.selector);
-				validate(inputElement, rule);
+				var isValid = validate(inputElement, rule);
+				if (!isValid)
+					isFormValid = false;
 			});
+
+
+			if (isFormValid) {
+				// Using JS to submit
+				if (typeof options.onSubmit === "function") {
+					//var enableInputs = formElement.querySelectorAll('[name]:not([disabled])');
+					var enableInputs = formElement.querySelectorAll('[name]');
+					var formValues = Array.from(enableInputs).reduce(function(values, input) {
+						return (values[input.name] = input.value) && values;
+					});
+
+					options.onSubmit(formValues);
+				}
+				// Using HTML to submit
+				else {
+					formElement.submit();
+				}
+			}
 		}
 
 		// Deal with event

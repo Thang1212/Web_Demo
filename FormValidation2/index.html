@@ -57,7 +57,10 @@
 			Validator.isConfirmed('#password_confirmation', function() {
 				return document.querySelector('#form-1 #password').value;
 			}, "Mat khau nhap lai khong chinh xac")
-		]
+		],
+		onSubmit: function(data) {
+			console.log(data);
+		}
 	});
 </script>
 </html>
