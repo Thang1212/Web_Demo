@@ -1,14 +1,17 @@
 function Validator(options) {
 	var selectorRules = {};
 
+	function removeInvalidEffect(inputElement) {
+		var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
+		inputElement.parentElement.classList.remove('invalid');
+		errorElement.innerText = '';
+	};
+
 	function validate(inputElement, rule) {
 		var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
 		var errorMessage;
-		// Take all rules of selector
 		var rules = selectorRules[rule.selector];
 
-		// Loop through each rule and check
-		// If have any error, stop the loop
 		for (var i = 0; i < rules.length; ++i) {
 			errorMessage = rules[i](inputElement.value);
 			if (errorMessage) break;
@@ -18,8 +21,7 @@ function Validator(options) {
 			errorElement.innerText = errorMessage;
 			inputElement.parentElement.classList.add('invalid');
 		} else {
-			errorElement.innerText = '';
-			inputElement.parentElement.classList.remove('invalid');
+			removeInvalidEffect(inputElement);
 		}
 
 		return !errorMessage;
@@ -28,83 +30,72 @@ function Validator(options) {
 	var formElement = document.querySelector(options.form);
 	if (formElement) {
 
-		// Deal with submit form
+		// When user submit form
 		formElement.onsubmit = function(e) {
-			e.preventDefault();
+			e.preventDefault();		
 
 			var isFormValid = true;
-
 			options.rules.forEach(function(rule) {
 				var inputElement = formElement.querySelector(rule.selector);
 				var isValid = validate(inputElement, rule);
-				if (!isValid)
+				if (!isValid) {
 					isFormValid = false;
+				}
 			});
 
-
 			if (isFormValid) {
-				// Using JS to submit
 				if (typeof options.onSubmit === "function") {
-					//var enableInputs = formElement.querySelectorAll('[name]:not([disabled])');
-					var enableInputs = formElement.querySelectorAll('[name]');
-					var formValues = Array.from(enableInputs).reduce(function(values, input) {
-						return (values[input.name] = input.value) && values;
-					});
-
-					options.onSubmit(formValues);
-				}
-				// Using HTML to submit
-				else {
+					var enableInputs = formElement.querySelectorAll('[name]:not([disabled])');
+					var formValue = Array.from(enableInputs).reduce(function(values, input){
+						values[input.name] = input.vlaue;
+						return values;
+					}, {});
+					options.onSubmit(formValue);
+				} else {
 					formElement.submit();
 				}
 			}
-		}
+		};
 
-		// Deal with event
+		// Events dealer
 		options.rules.forEach(function(rule) {
-			
-			// Save rule for each input
+			var inputElement = formElement.querySelector(rule.selector);
+
+			// Create a stack for easier validate
 			if (Array.isArray(selectorRules[rule.selector])) {
 				selectorRules[rule.selector].push(rule.test);
 			} else {
 				selectorRules[rule.selector] = [rule.test];
 			}
 
-			var inputElement = formElement.querySelector(rule.selector);
-
 			if (inputElement) {
-				// When blur out of input box
 				inputElement.onblur = function() {
 					validate(inputElement, rule);
 				};
 
-				// Insert in input box
 				inputElement.oninput = function() {
-					var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
-					errorElement.innerText = '';
-					inputElement.parentElement.classList.remove('invalid');
-
+					removeInvalidEffect(inputElement);
 				};
 			}
 		});
-	}
+	};
 };
 
 Validator.isRequired = function(selector, message) {
 	return {
 		selector: selector,
 		test: function(value) {
-			return value.trim() ? undefined : message || "Vui long nhap truong nay";
+			return value.trim() ? undefined : "Vui long nhap truong nay";
 		}
 	};
 };
 
 Validator.isEmail = function(selector, message) {
 	return {
-		selector: selector, 
+		selector: selector,
 		test: function(value) {
 			var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-			return regex.test(value) ? undefined : message || "Truong nay phai la email";
+			return regex.test(value) ? undefined : "Truong nay phai la email";
 		}
 	};
 };
@@ -113,7 +104,7 @@ Validator.minLength = function(selector, min, message) {
 	return {
 		selector: selector,
 		test: function(value) {
-			return value.length >= 6 ? undefined : message || `Vui long nhap vao ${min} ki tu`;
+			return value.length >= min ? undefined : message || `Vui long nhap toi thieu ${min} ki tu`;
 		}
 	};
 };
@@ -122,7 +113,7 @@ Validator.isConfirmed = function(selector, getConfirmValue, message) {
 	return {
 		selector: selector,
 		test: function(value) {
-			return value === getConfirmValue() ? undefined : message || 'Gia tri nhap vao khong chinh xac.';
+			return value === getConfirmValue() ? undefined : message || "Gia tri nhap vao khong chinh xac";
 		}
 	};
 };
