@@ -1,25 +1,44 @@
 function Validator(options) {
 	var selectorRules = {};
 
+	function getParent(element, selector) {
+		while (element.parentElement) {
+			if (element.parentElement.matches(selector)) {
+				return element.parentElement;
+			}
+			element = element.parentElement;
+		}
+	};
+
 	function removeInvalidEffect(inputElement) {
-		var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
-		inputElement.parentElement.classList.remove('invalid');
+		var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
+		getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
 		errorElement.innerText = '';
 	};
 
 	function validate(inputElement, rule) {
-		var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
+		var formGroupElement = getParent(inputElement, options.formGroupSelector);
+		var errorElement = formGroupElement.querySelector(options.errorSelector);
 		var errorMessage;
 		var rules = selectorRules[rule.selector];
 
 		for (var i = 0; i < rules.length; ++i) {
-			errorMessage = rules[i](inputElement.value);
+			switch(inputElement.type) {
+				case 'checkbox':
+				case 'radio':
+					errorMessage = rules[i](
+						formElement.querySelector(rule.selector + ':checked')
+					);
+					break;
+				default: 
+					errorMessage = rules[i](inputElement.value);
+			};
 			if (errorMessage) break;
 		}
 
 		if (errorMessage) {
 			errorElement.innerText = errorMessage;
-			inputElement.parentElement.classList.add('invalid');
+			formGroupElement.classList.add('invalid');
 		} else {
 			removeInvalidEffect(inputElement);
 		}
@@ -36,6 +55,8 @@ function Validator(options) {
 
 			var isFormValid = true;
 			options.rules.forEach(function(rule) {
+				// Don't need to loops through all 3 genders
+				// Because validate func will solve that problems
 				var inputElement = formElement.querySelector(rule.selector);
 				var isValid = validate(inputElement, rule);
 				if (!isValid) {
@@ -47,7 +68,14 @@ function Validator(options) {
 				if (typeof options.onSubmit === "function") {
 					var enableInputs = formElement.querySelectorAll('[name]:not([disabled])');
 					var formValue = Array.from(enableInputs).reduce(function(values, input){
-						values[input.name] = input.vlaue;
+						switch(input.type) {
+							case 'radio':
+							case 'checkbox':
+								values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value;
+								break;
+							default:
+								values[input.name] = input.value;
+						};
 						return values;
 					}, {});
 					options.onSubmit(formValue);
@@ -59,7 +87,7 @@ function Validator(options) {
 
 		// Events dealer
 		options.rules.forEach(function(rule) {
-			var inputElement = formElement.querySelector(rule.selector);
+			var inputElements = formElement.querySelectorAll(rule.selector);
 
 			// Create a stack for easier validate
 			if (Array.isArray(selectorRules[rule.selector])) {
@@ -68,7 +96,7 @@ function Validator(options) {
 				selectorRules[rule.selector] = [rule.test];
 			}
 
-			if (inputElement) {
+			Array.from(inputElements).forEach(function(inputElement) {
 				inputElement.onblur = function() {
 					validate(inputElement, rule);
 				};
@@ -76,16 +104,25 @@ function Validator(options) {
 				inputElement.oninput = function() {
 					removeInvalidEffect(inputElement);
 				};
-			}
+			});
 		});
-	};
+	}
 };
 
 Validator.isRequired = function(selector, message) {
 	return {
 		selector: selector,
 		test: function(value) {
-			return value.trim() ? undefined : "Vui long nhap truong nay";
+			var checkHTML = /^/;
+
+			//if (checkHTML.test(value)) {
+				//return undefined;
+			//} else if (value == null || value === ""){
+				//return message || "Vui long nhap truong nay";
+			//} else {
+				//return undefined;
+			//}
+			return value ? undefined : message || "Vui long nhap truong nay";
 		}
 	};
 };
@@ -94,8 +131,8 @@ Validator.isEmail = function(selector, message) {
 	return {
 		selector: selector,
 		test: function(value) {
-			var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-			return regex.test(value) ? undefined : "Truong nay phai la email";
+			var checkEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			return checkEmail.test(value) ? undefined : message || "Truong nay phai la email";
 		}
 	};
 };
