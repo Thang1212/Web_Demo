@@ -70,8 +70,20 @@ function Validator(options) {
 					var formValue = Array.from(enableInputs).reduce(function(values, input){
 						switch(input.type) {
 							case 'radio':
-							case 'checkbox':
 								values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value;
+								break;
+							case 'checkbox':
+								if (!input.matches(':checked')) {
+									values[input.name] = '';
+									return values;
+								}
+								if (!Array.isArray(values[input.name])) {
+									values[input.name] = [];
+								}
+								values[input.name].push(input.value);
+								break;
+							case 'file':
+								values[input.name] = input.files;
 								break;
 							default:
 								values[input.name] = input.value;
@@ -117,7 +129,7 @@ Validator.isRequired = function(selector, message) {
 
 			//if (checkHTML.test(value)) {
 				//return undefined;
-			//} else if (value == null || value === ""){
+			//} else if (value == null || value === "") {
 				//return message || "Vui long nhap truong nay";
 			//} else {
 				//return undefined;

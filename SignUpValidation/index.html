@@ -41,6 +41,23 @@
 		  </div>
 	  
 		  <div class="form-group">
+			<label for="avatar" class="form-label">Anh dai dien</label>
+			<input id="avatar" name="avatar" type="file" class="form-control">
+			<span class="form-message"></span>
+		  </div>
+	  
+		  <div class="form-group">
+			<label for="province" class="form-label">Nhập lại mật khẩu</label>
+			<select id="province" name="province" class="form-control">
+				<option value="">--Chon Tinh, TP</option>
+				<option value="hanoi">Ha Noi</option>
+				<option value="haiphong">Hai Phong</option>
+				<option value="tphcm">TP HCM</option>
+			</select>
+			<span class="form-message"></span>
+		  </div>
+	  
+		  <div class="form-group">
 			<label for="gender" class="form-label">Gioi tinh</label>
 			<div>
 				<input name="gender" type="radio" value="male" class="form-control">Nam
@@ -73,6 +90,8 @@
 			Validator.minLength('#password', 6),
 			Validator.isRequired('#password_confirmation'),
 			Validator.isRequired('input[name="gender"]'),
+			Validator.isRequired('#avatar'),
+			Validator.isRequired('#province'),
 			Validator.isConfirmed('#password_confirmation', function() {
 				return document.querySelector('#form-1 #password').value;
 			}, "Mat khau nhap lai khong chinh xac")
