@@ -1,0 +1,82 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+select, button, input, textarea {
+  outline: none;
+}
+
+input {
+  line-height: normal;
+}
+
+label, button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+body {
+  line-height: 1;
+  font-family: "Rubik", sans-serif;
+  color: #4F5665;
+  font-weight: 400;
+}
+
+.header {
+  padding-top: 50px;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-auth {
+  display: flex;
+  align-items: center;
+  gap: 0 30px;
+  text-transform: capitalize;
+}
+.header-signin {
+  font-weight: 500;
+  color: #0B132A;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0 40px;
+}
+.menu-link {
+  color: inherit;
+}
+
+/*# sourceMappingURL=app.css.map */

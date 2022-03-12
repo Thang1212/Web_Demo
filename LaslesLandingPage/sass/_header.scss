@@ -1,0 +1,28 @@
+.header {
+	padding-top: 50px;
+	&-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center; 
+	}
+	&-auth {
+		display: flex;
+		align-items: center;
+		gap: 0 30px;
+		text-transform: capitalize;
+	}
+	&-signin {
+		font-weight: 500;
+		color: $heading-color;
+	}
+}
+
+.menu {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 0 40px;
+	&-link {
+		color: inherit;
+	}
+}
