@@ -1,0 +1,35 @@
+.header {
+	&__container {
+		.menu {
+			&__item {
+				.menu__link {
+
+				}
+
+				&--auth {
+					.header__signin {
+						
+					}
+
+					.header__signup {
+
+					}
+				}
+			}
+		}
+
+		.menu__toggle {
+
+		}
+
+		&__auth {
+			.header__signin {
+
+			}
+
+			.header__signup {
+
+			}
+		}
+	}
+}
