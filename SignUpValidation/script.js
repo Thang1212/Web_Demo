@@ -10,12 +10,6 @@ function Validator(options) {
 		}
 	};
 
-	function removeInvalidEffect(inputElement) {
-		var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
-		getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
-		errorElement.innerText = '';
-	};
-
 	function validate(inputElement, rule) {
 		var formGroupElement = getParent(inputElement, options.formGroupSelector);
 		var errorElement = formGroupElement.querySelector(options.errorSelector);
@@ -40,7 +34,8 @@ function Validator(options) {
 			errorElement.innerText = errorMessage;
 			formGroupElement.classList.add('invalid');
 		} else {
-			removeInvalidEffect(inputElement);
+			errorElement.innerText = '';
+			formGroupElement.classList.remove('invalid');
 		}
 
 		return !errorMessage;
@@ -67,7 +62,7 @@ function Validator(options) {
 			if (isFormValid) {
 				if (typeof options.onSubmit === "function") {
 					var enableInputs = formElement.querySelectorAll('[name]:not([disabled])');
-					var formValue = Array.from(enableInputs).reduce(function(values, input){
+					var formValues = Array.from(enableInputs).reduce(function(values, input){
 						switch(input.type) {
 							case 'radio':
 								values[input.name] = formElement.querySelector('input[name="' + input.name + '"]:checked').value;
@@ -90,7 +85,7 @@ function Validator(options) {
 						};
 						return values;
 					}, {});
-					options.onSubmit(formValue);
+					options.onSubmit(formValues);
 				} else {
 					formElement.submit();
 				}
@@ -114,7 +109,9 @@ function Validator(options) {
 				};
 
 				inputElement.oninput = function() {
-					removeInvalidEffect(inputElement);
+                    var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
+                    errorElement.innerText = '';
+                    getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
 				};
 			});
 		});

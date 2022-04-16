@@ -1,104 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-	<script src="script.js"></script>
-	<title>Document</title>
+	<link rel="stylesheet" href="./app.css">
+    <script src="./script.js"></script>
+    <title>Document</title>
 </head>
 <body>
-	<div class="main">
+    <div class="main">
+        <form action="" method="POST" class="form" id="form--1">
+            <h3 class="form__heading">Thanh vien dang ki</h3>
 
-		<form action="" method="POST" class="form" id="form-1">
-		  <h3 class="heading">Thành viên đăng ký</h3>
-		  <p class="desc"></p>
-	  
-		  <div class="spacer"></div>
-	  
-		  <div class="form-group">
-			<label for="fullname" class="form-label">Tên đầy đủ</label>
-			<input id="fullname" name="fullname" type="text" placeholder="VD: Thang Duy" class="form-control">
-			<span class="form-message"></span>
-		  </div>
-	  
-		  <div class="form-group">
-			<label for="email" class="form-label">Email</label>
-			<input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-			<span class="form-message"></span>
-		  </div>
-	  
-		  <div class="form-group">
-			<label for="password" class="form-label">Mật khẩu</label>
-			<input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-			<span class="form-message"></span>
-		  </div>
-	  
-		  <div class="form-group">
-			<label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-			<input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
-			<span class="form-message"></span>
-		  </div>
-	  
-		  <div class="form-group">
-			<label for="avatar" class="form-label">Anh dai dien</label>
-			<input id="avatar" name="avatar" type="file" class="form-control">
-			<span class="form-message"></span>
-		  </div>
-	  
-		  <div class="form-group">
-			<label for="province" class="form-label">Nhập lại mật khẩu</label>
-			<select id="province" name="province" class="form-control">
-				<option value="">--Chon Tinh, TP</option>
-				<option value="hanoi">Ha Noi</option>
-				<option value="haiphong">Hai Phong</option>
-				<option value="tphcm">TP HCM</option>
-			</select>
-			<span class="form-message"></span>
-		  </div>
-	  
-		  <div class="form-group">
-			<label for="gender" class="form-label">Gioi tinh</label>
-			<div>
-				<input name="gender" type="radio" value="male" class="form-control">Nam
-			</div>
+            <p class="form__desc">Cung hoc lap trinh</p>
 
-			<div>
-				<input name="gender" type="radio" value="female" class="form-control">Nu
-			</div>
+            <div class="form__spacer"></div>
 
-			<div>
-				<input name="gender" type="radio" value="other" class="form-control">Khac
-			</div>
+            <div class="form__group">
+                <label for="fullname" class="form__label">Ten day du</label>
+                <input type="text" id="fullname" placeholder="VD: Thang Duy" name="fullname" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
 
-			<span class="form-message"></span>
-		  </div>
+            <div class="form__group">
+                <label for="email" class="form__label">Email</label>
+                <input type="text" id="email" placeholder="VD: email@domain.com" name="email" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
 
-		  <button class="form-submit">Đăng ký</button>
-		</form>
-	  
-	</div>
+            <div class="form__group">
+                <label for="password" class="form__label">Nhap mat khau</label>
+                <input type="password" id="password" placeholder="Nhap mat khau" name="password" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+
+            <div class="form__group">
+                <label for="password__confirmation" class="form__label">Nhap lai mat khau</label>
+                <input type="password" id="password__confirmation" placeholder="Nhap lai mat khau" name="password__confirmation" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+
+            <div class="form__group">
+                <label for="avatar" class="form__label">Anh dai dien</label>
+                <input type="file" id="avatar" name="avatar" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+
+            <div class="form__group">
+                <label for="province" class="form__label">Noi o hien tai</label>
+                <select name="province" id="province" class="form__control">
+                    <option value="">--Chon Tinh, TP</option>
+                    <option value="HaNoi">Ha Noi</option>
+                    <option value="Tphcm">Thanh Pho Ho Chi Minh</option>
+                    <option value="DaNang">Da Nang</option>
+                </select>
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+
+            <div class="form__group">
+                <label for="gender" class="form__label">Gioi tinh</label>
+                <div>
+                    <input name="gender" type="radio" id="gender" value="male" class="form__control">Nam
+                </div>
+
+                <div>
+                    <input name="gender" type="radio" id="gender" value="female" class="form__control">Nu
+                </div>
+
+                <div>
+                    <input name="gender" type="radio" id="gender" value="other" class="form__control">Khac
+                </div>
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+            
+            <button class="form__submit">Dang Ki</button>
+        </form>
+    </div>      <!--main-->
 </body>
 <script>
-	Validator({
-		form: '#form-1',
-		formGroupSelector: '.form-group',
-		errorSelector: '.form-message',
-		rules: [
-			Validator.isRequired('#fullname', "Vui long nhap ten day du cua ban"),
-			Validator.isEmail('#email'),
-			Validator.minLength('#password', 6),
-			Validator.isRequired('#password_confirmation'),
-			Validator.isRequired('input[name="gender"]'),
-			Validator.isRequired('#avatar'),
-			Validator.isRequired('#province'),
-			Validator.isConfirmed('#password_confirmation', function() {
-				return document.querySelector('#form-1 #password').value;
-			}, "Mat khau nhap lai khong chinh xac")
-		],
-		onSubmit: function(data) {
-			console.log(data);
-		}
-	});
+    Validator({
+        form: '#form--1',
+        formGroupSelector: '.form__group',
+        errorSelector: '.form__message',
+
+        rules: [
+            Validator.isRequired('#fullname', 'Vui long nhap ten day du cua ban'),
+            Validator.isEmail('#email'),
+            Validator.minLength('#password', 6),
+            Validator.isRequired('#password__confirmation'),
+            Validator.isConfirmed('#password__confirmation', function () {
+                return document.querySelector('#form--1 #password').value;
+            }, 'Mat khau nhap lai khong chinh xac'),
+            Validator.isRequired('input[name="gender"]'),
+            Validator.isRequired('#avatar'),
+            Validator.isRequired('#province'),
+        ],
+
+        onSubmit: function (data) {
+            console.log(data);
+        }
+    });
 </script>
 </html>
