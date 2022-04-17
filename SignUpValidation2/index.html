@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./app.css">
+    <script src="./script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <form action="" method="POST" class="form" id="register__form">
+            <h3 class="form__heading">Thanh vien dang ki</h3>
+
+            <p class="form__desc">Cung hoc lap trinh</p>
+
+            <div class="form__spacer"></div>
+
+            <div class="form__group">
+                <label for="fullname" class="form__label">Ten day du</label>
+                <input type="text" id="fullname" placeholder="VD: Thang Duy" rules="required" name="fullname" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+
+            <div class="form__group">
+                <label for="email" class="form__label">Email</label>
+                <input type="text" id="email" placeholder="VD: email@domain.com" rules="required|email" name="email" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+
+            <div class="form__group">
+                <label for="password" class="form__label">Nhap mat khau</label>
+                <input type="password" id="password" placeholder="Nhap mat khau" rules="required|min:6" name="password" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+
+            <div class="form__group">
+                <label for="password__confirmation" class="form__label">Nhap lai mat khau</label>
+                <input type="password" id="password__confirmation" placeholder="Nhap lai mat khau" rules="required" name="password__confirmation" class="form__control">
+                <span class="form__message"></span>
+            </div>      <!--form__group-->
+
+            <button class="form__submit">Dang Ki</button>
+        </form>
+    </div>          <!--main-->
+</body>
+<script>
+    var form = new Validator('#register__form');
+    form.onSubmit = function (formData) {
+        console.log("Call API");
+        console.log(formData);
+    }
+
+</script>
+</html>
