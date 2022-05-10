@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"/>
 	<link rel="stylesheet" href="./css/app.css">
     <title>Document</title>
+
+	<!-- Slick slider css -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+	<!-- Icon link -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" /> -->
 </head>
 <body>
 	<div class="wrapper">
@@ -35,7 +42,7 @@
 						<a href="#" class="menu__link">Help</a>
 					  </li>
 
-					  <li class="menu__item--auth">
+					  <li class="menu__item menu__item--auth">
 						<a href="#" class="header__signin">Sign In</a>
 						<a href="#" class="button button__outline header__signup">Sign Up</a>
 					  </li>
@@ -50,6 +57,7 @@
 						<a href="#" class="button button__outline header__signup">Sign Up</a>
 					</div>
 				</div>		<!--header__container-->
+
 			</div>		<!--container-->
 		</header>
 
@@ -154,128 +162,130 @@
 						<h2 class="heading">Choose Your Plan</h2>
 						<p class="text">Let's choose the package that is best for you and explore it happily and cheerfully.</p>
 					</div>
+					
+					<div class="plan__list">
+						<div class="plan__item">
+							<div class="plan__image">
+								<img srcset="./images/plan.png 2x" alt="">
+							</div>	
 
-					<div class="plan__item">
-						<div class="plan__image">
-							<img srcset="./images/plan.png 2x" alt="">
-						</div>	
+							<h3 class="plan__title">Free Plan</h3>
 
-						<h3 class="plan__title">Free Plan</h3>
+							<div class="plan__details">
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Unlimited Bandwitch</span>
+								</div>
 
-						<div class="plan__details">
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Unlimited Bandwitch</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Encrypted Connection</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Encrypted Connection</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>No Traffic Logs</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>No Traffic Logs</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Works on All Devices</span>
+								</div>
+							</div>		<!--plan__details-->
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Works on All Devices</span>
-							</div>
-						</div>		<!--plan__details-->
+							<h4 class="plan__price">Free</h4>
+							<a href="#" class="button button--outline">Select</a>
+						</div>		<!--plan__item-->
 
-						<h4 class="plan__price">Free</h4>
-						<a href="#" class="button button--outline">Select</a>
-					</div>		<!--plan__item-->
+						<div class="plan__item">
+							<div class="plan__image">
+								<img srcset="./images/plan2.png 2x" alt="">
+							</div>	
 
-					<div class="plan__item">
-						<div class="plan__image">
-							<img srcset="./images/plan2.png 2x" alt="">
-						</div>	
+							<h3 class="plan__title">Standard Plan</h3>
 
-						<h3 class="plan__title">Standard Plan</h3>
+							<div class="plan__details">
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Unlimited Bandwitch</span>
+								</div>
 
-						<div class="plant__details">
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Unlimited Bandwitch</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Encrypted Connection</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Encrypted Connection</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Yes Traffic Logs</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Yes Traffic Logs</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Works on All Devices</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Works on All Devices</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Connect Anyware</span>
+								</div>
+							</div>		<!--plan__details-->
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Connect Anyware</span>
-							</div>
-						</div>		<!--plan__details-->
+							<h4 class="plan__price">$9 / mo</h4>
+							<a href="#" class="button button--outline">Select</a>
+						</div>		<!--plan__item-->
 
-						<h4 class="plan__price">$9 / mo</h4>
-						<a href="#" class="button button--outline">Select</a>
-					</div>		<!--plan__item-->
+						<div class="plan__item is-active">
+							<div class="plan__image">
+								<img srcset="./images/plan3.png 2x" alt="">
+							</div>	
 
-					<div class="plan__item">
-						<div class="plan__image">
-							<img srcset="./images/plan3.png 2x" alt="">
-						</div>	
+							<h3 class="plan__title">Premium Plan</h3>
 
-						<h3 class="plan__title">Premium Plan</h3>
+							<div class="plan__details">
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Unlimited Bandwitch</span>
+								</div>
 
-						<div class="plant__details">
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Unlimited Bandwitch</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Encrypted Connection</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Encrypted Connection</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Yes Traffic Logs</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Yes Traffic Logs</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Works on All Devices</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Works on All Devices</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Connect Anyware</span>
+								</div>
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Connect Anyware</span>
-							</div>
+								<div class="plan__info">
+									<img src="./images/icon-check-line.svg" alt="">
+									<span>Get New Features</span>
+								</div>
+							</div>		<!--plan__details-->
 
-							<div class="plan__info">
-								<img src="./images/icon-check-line.svg" alt="">
-								<span>Get New Features</span>
-							</div>
-						</div>		<!--plan__details-->
-
-						<h4 class="plan__price">$12 / mo</h4>
-						<a href="#" class="button button--outline button--shadow">Select</a>
-					</div>		<!--plan__item-->
+							<h4 class="plan__price">$12 / mo</h4>
+							<a href="#" class="button button--outline button--shadow">Select</a>
+						</div>		<!--plan__item-->
+					</div>		<!--plan__list-->
 				</div>		<!--container-->
 			</section>			
 
 			<section class="network">
 				<div class="container">
 					<div class="boxed">
-						<h2 class="heading network__heading"></h2>
-						<p class="text"></p>
+						<h2 class="heading network__heading">Huge Global Network of Fast VPN</h2>
+						<p class="text">See <span class="text--medium">LaslesVPN </span> everywhere to make it easier for you when you move locations. </p>
 					</div>		<!--boxed-->
 
 					<div class="network__image">
@@ -530,5 +540,10 @@
 		</footer>
 	</div>			<!--wrapper-->
 </body>
-<script src="./script/script.js"></script>
+<!-- Slick slider scripts -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script src="./scripts/script.js"></script>
 </html>

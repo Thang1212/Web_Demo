@@ -1,7 +1,26 @@
 .partner {
-	&__container {
-		.partner__item {
+  	margin-bottom: 50px;
 
-		}
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0 60px;
 	}
+
+	&__item {
+
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.partner__container {
+    	gap: 0 20px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.partner {
+    	margin-bottom: 30px;
+  	}
 }
