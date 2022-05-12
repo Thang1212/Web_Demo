@@ -1,0 +1,37 @@
+.tools {
+  padding: 59px 0 68px;
+  background-color: var(--gray1e);
+  &-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  &-image {
+    transform: translateX(20%);
+  }
+  &-content {
+    width: 100%;
+    max-width: 584px;
+    color: var(--grayb5);
+  }
+  &-heading {
+    color: white;
+    margin-bottom: 9px;
+  }
+  &-text {
+    max-width: 362px;
+    margin-bottom: 41px;
+  }
+  @include maxWidth(1023px) {
+    padding: 60px 0;
+    &-main {
+      flex-direction: column;
+      gap: 40px 0;
+    }
+    &-image {
+      margin: 0 auto;
+      transform: none;
+    }
+  }
+}
