@@ -1,4 +1,6 @@
+// font-size by default will be 16px
 body {
+	// Those things is the majority uses
 	line-height: 1;
 	font-family: $font;
 	color: $text-color;
@@ -14,13 +16,20 @@ button {
 }
 
 .wrapper {
+	// Based on the design. the page has the width of 1440px
 	max-width: 1440px;
+	// Imagine all the blocks like stacks, the above is 0, and center it by default
 	margin: 0 auto;
 }
 
+// Find the largest (container) block, and take its property to be default
 .container {
+	// Based on the design, max width of it is 1140px?
+	// But we add some padding so it will  be 1170px (so the real things are 1140?)
 	max-width: 1170px;
+	// Center all the element (or all the tag) inside
 	margin: 0 auto;
+	// Put it some padding, so the elements (tags) in the next is not stick together
 	padding: 0 15px;
 }
 
@@ -41,7 +50,7 @@ button {
 		font-weight: 700;
 		background-color: $primary-color;
 		color: white;
-  	}
+  }
 
 	&--outline {
 		background-color: transparent;

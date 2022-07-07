@@ -1,11 +1,21 @@
 .menu {
 	list-style: none;
+
+	// Apply flex-box for the children insde menu
+	// It won't be affect by the flex-box of container 
 	display: flex;
+
+	// Just for flex-container
+	// Justify in cross axis
 	align-items: center;
+
+	// Base on the design, the distance between element
 	gap: 0 40px;
 
 	&__item {
 		.menu__link {
+			// Inherit from body
+			// Body is set for the most use color text 
 			color: inherit;
 			display: inline-block;
 		}

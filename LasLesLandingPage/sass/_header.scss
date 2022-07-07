@@ -1,12 +1,22 @@
 .header {
+	// Base on the design, the distance between the ceiling of the page and element
 	padding-top: 50px;
+
+	// Based on the design, the distance between header and hero section
 	padding-bottom: 90px;
 
 	&__container {
+		// Apply flex-box to the child of container
+		// Not the child of the child
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
 
+		// Those two is for flex-container
+		// Justify those child blocks of container in main axis
+		// We don't make it so precise like use gap, just space-between is fine
+		justify-content: space-between;
+
+		//Justify those child blocks of container in cross axis
+		align-items: center;
 	}
 
 	.menu {
@@ -32,9 +42,15 @@
 	}
 
 	&__auth {
+		// Align it center so that all the element in header is straight
 		display: flex;
 		align-items: center;
+
+		// Gap applies on the the children
+		// Gap maybe just use for flex-box and grid
 		gap: 0 30px;
+
+		// Make it capital
 		text-transform: capitalize;
 
 		.header__signin {
@@ -47,25 +63,35 @@
 	}
 
 	&__signin {
+		// Text Medium -> weight: 500
 		font-weight: 500;
 		color: $heading-color;
 	}
 
 	&__signup {
+		// The distance between the text and the border around it
 		padding: 13px 45px;
+
+		// border-radius with 100px is like the most curve, (nothing can more curve) 
+		// rem unit here inherit from (maybe find the same attribute)?? (maybe default of browser)
 		border-radius: 100rem;
 		color: $primary-color;
+
+		// If we don't tell, the border will take the color of the text
 		border: 1px solid;
+
+		// Based on the design
+		// By default like we set in body, it only weight 400
 		font-weight: 500;
 	}
 }
 
 @media screen and (max-width: 1023px) {
-  	.header {
+  .header {
     	padding: 25px 0 50px;
 
 		&__auth {
 			display: none;
 		}
-  	}
+  }
 }
