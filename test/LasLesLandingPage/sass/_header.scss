@@ -15,7 +15,8 @@
     &-auth {
         display: flex;
         align-items: center;
-        gap: 0 30px;
+
+        // gap: 0 30px;
 
         text-transform: capitalize;
         font-weight: 500;
@@ -29,13 +30,20 @@
     &-signup {
         text-decoration: none;
     }
+
+	&-signin + &-signup {
+		margin-left: 30px
+	}
 }
 
 .menu {
     display: flex;
     align-items: center;
 
-    gap: 0 40px;
+    // gap: 0 40px;
+	&-item + &-item {
+		margin-left: 40px;
+	}
 
     list-style: none;
 
@@ -43,7 +51,8 @@
         &--auth {
             display: flex;
             align-items: center;
-            gap: 0 30px;
+
+            // gap: 0 30px;
 
             text-transform: capitalize;
             font-weight: 500;
@@ -61,6 +70,10 @@
         &--signup {
             color: $primary-color;
         }
+
+		&--signin + &--signup {
+			margin-left: 30px;
+		}
     }
 
 	&-toggle {
@@ -116,7 +129,7 @@
 
 @media screen and (max-width: 1023.98px) {
 	.header {
-		// padding-top: 25px;
+		padding-top: 25px;
 
 		&-auth {
 			display: none;
@@ -147,21 +160,15 @@
 		z-index: 99;
 		border-left: 1px solid $gray-lighter-color;
 		flex-direction: column;
-		gap: 10px 0;
+		// gap: 10px 0;
 		padding-top: 60px;
 		align-items: stretch;
 		transform: translateX(100%);
 		will-change: transform;
 		transition: all 0.2s linear;
 
-		&.is-show {
-			transform: translateX(0);
-		}
-
-		&-link {
-			display: block;
-			width: 100%;
-			padding: 20px;
+		&-item + &-item {
+			margin-top: 10px;
 		}
 
 		&-item--auth {
@@ -169,13 +176,27 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			gap: 0 20px;
+			// gap: 0 20px;
+		}
+
+		&-link {
+			display: block;
+			width: 100%;
+			padding: 20px;
+
+			&--signin + &--signup {
+				margin-left: 20px;
+			}
 		}
 
 		&-toggle {
 			display: inline-flex;
 			justify-content: space-between;
 			flex-direction: column;
+		}
+
+		&.is-show {
+			transform: translateX(0);
 		}
 	}
 }

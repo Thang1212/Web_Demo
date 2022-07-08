@@ -246,7 +246,6 @@ button {
 .header-auth {
   display: flex;
   align-items: center;
-  gap: 0 30px;
   text-transform: capitalize;
   font-weight: 500;
 }
@@ -257,17 +256,21 @@ button {
 .header-signup {
   text-decoration: none;
 }
+.header-signin + .header-signup {
+  margin-left: 30px;
+}
 
 .menu {
   display: flex;
   align-items: center;
-  gap: 0 40px;
   list-style: none;
+}
+.menu-item + .menu-item {
+  margin-left: 40px;
 }
 .menu-item--auth {
   display: flex;
   align-items: center;
-  gap: 0 30px;
   text-transform: capitalize;
   font-weight: 500;
 }
@@ -280,6 +283,9 @@ button {
 }
 .menu-link--signup {
   color: #F53838;
+}
+.menu-link--signin + .menu-link--signup {
+  margin-left: 30px;
 }
 .menu-toggle {
   display: none;
@@ -326,6 +332,9 @@ button {
   }
 }
 @media screen and (max-width: 1023.98px) {
+  .header {
+    padding-top: 25px;
+  }
   .header-auth {
     display: none;
   }
@@ -341,32 +350,36 @@ button {
     z-index: 99;
     border-left: 1px solid #ddd;
     flex-direction: column;
-    gap: 10px 0;
     padding-top: 60px;
     align-items: stretch;
     transform: translateX(100%);
     will-change: transform;
     transition: all 0.2s linear;
   }
-  .menu.is-show {
-    transform: translateX(0);
-  }
-  .menu-link {
-    display: block;
-    width: 100%;
-    padding: 20px;
+  .menu-item + .menu-item {
+    margin-top: 10px;
   }
   .menu-item--auth {
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0 20px;
+  }
+  .menu-link {
+    display: block;
+    width: 100%;
+    padding: 20px;
+  }
+  .menu-link--signin + .menu-link--signup {
+    margin-left: 20px;
   }
   .menu-toggle {
     display: inline-flex;
     justify-content: space-between;
     flex-direction: column;
+  }
+  .menu.is-show {
+    transform: translateX(0);
   }
 }
 
