@@ -498,3 +498,24 @@
     <!-- sass ./sass/app.scss ./css/app.css --watch -->
   </body>
 </html>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-container">
+            <div class="hero-content">
+              <h1 class="hero-heading">Want anything to be easy with <strong>LaslesVPN.</strong>"></LaslesVPN></h1>
+
+              <p class="hero-desc">Provide a network for all your needs with ease and fun using LaslesVPN discover interesting features from us.</p>
+
+              <a href="#" class="button button--primary button--rounded">Get Started!</a>
+            </div>    <!--hero-content-->
+
+            <div class="hero-image">
+              <img srcset="./images/hero-image.png 2x" alt="">
+            </div>
+          </div>    <!--hero-container-->
+        </div>    <!--container-->
+      </section>    <!--hero-->
+
+    </main>

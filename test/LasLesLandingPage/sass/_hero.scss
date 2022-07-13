@@ -1,0 +1,109 @@
+.hero {
+    padding-bottom: 100px;
+
+    &-container {
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        position: relative;
+    }
+
+    &-content {
+        width: 100%;
+        max-width: 555px;
+    }
+
+    &-heading {
+        font-size: 50px;
+        font-weight: 500;
+        line-height: calc(70 / 50);
+
+        margin-bottom: 20px;
+
+        color: $heading-color;
+    }
+
+    &-desc {
+        margin-bottom: 50px;
+    }
+
+    &-content + &-image {
+        margin-left: 40px;
+    }
+
+    &-image {
+
+    }
+}
+
+@media screen and (min-width: 1279.98px) {
+	.hero-image {
+		position: absolute;
+		top: 50%;
+		transform: translate(40px, -50%);
+		right: 0;
+  	}
+}
+
+// @media screen and (min-width: 1023.98px) and (max-width: 1179.25px) {
+
+// }
+
+// @media screen and (min-width: 895.98px) and (max-width: 1023.25px) {
+
+// }
+
+@media screen and (max-width: 1023.25px) {
+	.hero {
+		padding-bottom: 50px;
+
+		&-heading {
+			font-size: 35px;
+		}
+    }
+}
+
+// @media screen and (min-width: 819.98px) and (max-width: 895.25px) {
+//     .hero-image {
+
+//     }
+// }
+
+// @media screen and (min-width: 767.98px) and (max-width: 819.25px) {
+
+// }
+
+// @media screen and (min-width: 735.98px) and (max-width: 767.25px) {
+
+// }
+
+@media screen and (max-width: 767.25px) {
+	.hero {
+		&-container {
+			flex-direction: column-reverse;
+			// gap: 50px 0;
+		}
+
+		&-desc {
+			margin-bottom: 25px;
+		}
+
+        &-image + &-content {
+            margin-top: 50px;
+        }
+	}
+}
+
+// @media screen and (min-width: 666.98px) and (max-width: 735.25px) {
+
+// }
+
+// @media screen and (min-width: 413.98px) and (max-width: 666.25px) {
+
+// }
+
+// @media screen and (min-width: 374.98px) and (max-width: 413.25px) {
+
+// }
+

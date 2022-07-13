@@ -197,6 +197,7 @@ button {
   outline: none;
   text-align: center;
   white-space: nowrap;
+  text-decoration: none;
 }
 .button--primary {
   font-weight: 700;
@@ -211,7 +212,7 @@ button {
 }
 .button--rounded {
   border-radius: 10px;
-  padding: 17.5px 77.5;
+  padding: 17px 77px;
 }
 .button--shadow {
   position: relative;
@@ -229,11 +230,24 @@ button {
   border-radius: inherit;
 }
 
-@media screen and (max-width: 1179.25px) {
+@media screen and (max-width: 767px) {
   .button {
     padding: 13px 26px;
   }
 }
+.text {
+  line-height: 1.875;
+}
+
+.text--medium {
+  font-weight: 500;
+}
+
+.text--small {
+  font-size: 14px;
+  line-height: 2.1428571429;
+}
+
 .header {
   padding-top: 50px;
   padding-bottom: 90px;
@@ -264,9 +278,6 @@ button {
   display: flex;
   align-items: center;
   list-style: none;
-}
-.menu-item + .menu-item {
-  margin-left: 40px;
 }
 .menu-item--auth {
   display: flex;
@@ -339,6 +350,11 @@ button {
     display: none;
   }
 }
+@media screen and (min-width: 767.98px) {
+  .menu-item + .menu-item {
+    margin-left: 40px;
+  }
+}
 @media screen and (max-width: 767.25px) {
   .menu {
     position: fixed;
@@ -380,6 +396,59 @@ button {
   }
   .menu.is-show {
     transform: translateX(0);
+  }
+}
+.hero {
+  padding-bottom: 100px;
+}
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.hero-content {
+  width: 100%;
+  max-width: 555px;
+}
+.hero-heading {
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: #0B132A;
+}
+.hero-desc {
+  margin-bottom: 50px;
+}
+.hero-content + .hero-image {
+  margin-left: 40px;
+}
+@media screen and (min-width: 1279.98px) {
+  .hero-image {
+    position: absolute;
+    top: 50%;
+    transform: translate(40px, -50%);
+    right: 0;
+  }
+}
+@media screen and (max-width: 1023.25px) {
+  .hero {
+    padding-bottom: 50px;
+  }
+  .hero-heading {
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 767.25px) {
+  .hero-container {
+    flex-direction: column-reverse;
+  }
+  .hero-desc {
+    margin-bottom: 25px;
+  }
+  .hero-image + .hero-content {
+    margin-top: 50px;
   }
 }
 
